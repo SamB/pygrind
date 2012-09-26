@@ -1,0 +1,14 @@
+# Cython output
+_pygrind.c
+
+*.py[cod]
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+sdist
