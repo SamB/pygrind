@@ -55,6 +55,8 @@ cdef class Profiler:
     def profile(self, fun, args=[], kwargs={}):
         #PyEval_SetTrace(<Py_tracefunc>Profiler._tracefunc, self)
         PyEval_SetProfile(<Py_tracefunc>Profiler._tracefunc, self)
-        x = fun(*args, **kwargs)
-        #PyEval_SetTrace(NULL, None)
-        PyEval_SetProfile(NULL, None)
+        try:
+            x = fun(*args, **kwargs)
+        finally:
+            #PyEval_SetTrace(NULL, None)
+            PyEval_SetProfile(NULL, None)
